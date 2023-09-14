@@ -12,7 +12,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 
-
 @NgModule({
   declarations: [
     CardRepuestosComponent,
@@ -20,14 +19,15 @@ import { SharedModule } from '../shared/shared.module';
     ListPageComponent,
     RepuestoPageComponent,
     NewPageComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    
   ],
   imports: [
     CommonModule,
     RepuestosRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
     // importar los modulos 
 
 

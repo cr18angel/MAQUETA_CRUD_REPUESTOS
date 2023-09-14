@@ -3,6 +3,7 @@ import { Repuesto } from '../../interfaces/repuesto.interfaces';
 import { RepuestosService } from '../../services/repuestos.service';
 
 
+
 @Component({
   selector: 'app-list-repuesto',
   templateUrl: './list-page.component.html',
@@ -16,6 +17,12 @@ export class ListPageComponent implements OnInit {
 
   constructor( private _respuestoService: RepuestosService  ) {}
 
+
+// metodos
+// redirectToView() {
+  
+//   this.router.navegate(['/ruta-deseada']);
+// }
 
 
 
