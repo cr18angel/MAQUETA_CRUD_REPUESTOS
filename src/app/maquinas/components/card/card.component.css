@@ -1,0 +1,10 @@
+.mat-mdc-card-image mdc-card__media img-max-height.mdc-card__media{
+    position: relative;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 80px;
+}
+
+

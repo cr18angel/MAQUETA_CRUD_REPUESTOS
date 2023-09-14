@@ -1,0 +1,56 @@
+<!-- para ver la informacion de la maquina  -->
+
+
+<ng-template #divLoading>
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+      <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-template>
+
+
+<div *ngIf="maquina; else divLoading" class="grid p-2">
+
+  <mat-card class="col-12 sm:col-6">
+
+    <mat-card-header>
+      <mat-card-title>{{ maquina.modelo }}</mat-card-title>
+      <mat-card-subtitle>{{ maquina.nombreMaquina }}</mat-card-subtitle>
+    </mat-card-header>
+
+
+    <img [src]="maquina | heroImage" [alt]="maquina.nombreMaquina" mat-card-image  />
+
+  </mat-card>
+
+  <mat-card class="col-12 sm:col-6">
+
+    <mat-card-header>
+      <mat-card-title>Información</mat-card-title>
+      <mat-card-subtitle>{{ maquina.nombreMaquina }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>{{ maquina.peso }}</mat-list-item>
+  
+        <mat-list-item>{{ maquina.publisher }}</mat-list-item>
+        <mat-list-item>{{ maquina.modelo }}</mat-list-item>
+      </mat-list>
+
+      <button
+        mat-button
+        color="warn"
+        (click)="goBack()"
+      >
+        Atras
+      </button>
+
+    </mat-card-content>
+
+
+  </mat-card>
+
+
+</div>

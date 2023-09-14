@@ -1,0 +1,60 @@
+
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ repuesto.Descripcion | slice:0:50 }}</mat-card-title>
+
+      <mat-card-subtitle>{{ repuesto.NroParte }}</mat-card-subtitle>
+    </mat-card-header>
+  
+    <!-- TODO: imagen -->
+
+    <img mat-card-image  [src]="'assets/heroes/' + '216125' + '.JPG'"   style="max-height: 120px;"   >
+    <!-- <img mat-card-image [src]="'assets/heroes/' + repuesto.NroParte + '.JPG'"> -->
+
+    216125
+  
+    <mat-card-content class="mt-2">
+      <h4>{{ repuesto.StockTotal }}</h4>
+      <p>
+        <strong>Caracteristicas</strong> 
+        <br>
+        peso
+        <br>
+        tamaño
+        <br>
+        Origen
+  
+        <!-- <mat-chip-listbox>
+          <mat-chip *ngFor="let name of hero.characters.split(',') | slice:0:3">
+            {{ name }}
+          </mat-chip>
+        </mat-chip-listbox> -->
+      </p>
+    </mat-card-content>
+  
+    <mat-divider></mat-divider>
+  
+    <mat-card-actions>
+  
+      <button mat-button
+        mat-raised
+        color="primary"
+        [routerLink]="['/heroes/edit', repuesto.NroParte ]">
+        <mat-icon>edit</mat-icon>
+        Editar
+      </button>
+  
+      <span class="spacer"></span>
+  
+      <button mat-button
+        mat-raised
+        color="primary"
+        [routerLink]="['/heroes', repuesto.NroParte ]">
+        <mat-icon>search</mat-icon>
+      Ver
+      </button>
+  
+    </mat-card-actions>
+  
+  </mat-card>
+  
