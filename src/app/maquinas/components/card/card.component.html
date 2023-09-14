@@ -1,5 +1,5 @@
 
-<mat-card>
+<mat-card style="max-width: 18rem;">
   <mat-card-header>
     <mat-card-title>{{ maquina.nombreMaquina }}</mat-card-title>
     <mat-card-subtitle>{{ maquina.modelo }}</mat-card-subtitle>
@@ -7,7 +7,7 @@
 
   <!-- TODO: imagen -->
 
-  <img   mat-card-image [src]="maquina | heroImage" [alt]="maquina.nombreMaquina"   (click)="goToRepuestos()" style="max-height: 120px; cursor: pointer; ">
+  <img   mat-card-image [src]="maquina | heroImage" [alt]="maquina.nombreMaquina"   (click)="goToRepuestos()" style="max-height: 120px; display: flex; cursor: pointer; padding: 16px 16px 0;">
 
   <mat-card-content class="mt-2">
     <h4>{{ maquina.publisher }}</h4>
