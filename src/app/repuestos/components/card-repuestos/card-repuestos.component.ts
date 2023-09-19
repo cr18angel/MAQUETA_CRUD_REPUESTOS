@@ -17,4 +17,9 @@ export class CardRepuestosComponent  implements OnInit{
   ngOnInit(): void {
     if ( !this.repuesto ) throw Error('Hero property is required');
   }
+
+  setDefaultImage(event: any) {
+    event.target.src = 'assets/heroes/SinImagen.JPG';
+}
+
 }

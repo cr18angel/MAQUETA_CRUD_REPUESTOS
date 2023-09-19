@@ -1,1 +1,111 @@
-<p>agregar repuesto</p>
+<h1>
+    <!-- {{ currentHero.id ? 'Editar' : 'Agregar' }} -->
+    Repuesto
+    <!-- <small *ngIf="currentHero.id">{{ currentHero.nombreMaquina }}</small> -->
+  </h1>
+  
+  <mat-divider class="mb-2"></mat-divider>
+  
+  <div class="grid">
+  
+    <div class="col-12 sm:col-6">   
+      <mat-card>
+        <mat-card-content>
+  
+          <form [formGroup]="repuestoForm" class="grid" >
+  
+            <mat-form-field class="col-12 sm:col-6">
+              <mat-label>Nuevo Repuesto</mat-label>
+              <input
+                matInput
+                type="text"
+                required
+                formControlName="nombreRepuesto"
+              />
+            </mat-form-field>
+  
+            <mat-form-field class="col-12 sm:col-6">
+              <mat-label>Marca</mat-label>
+              <input
+                matInput
+                type="text"
+                required
+                formControlName="marca"
+              />
+            </mat-form-field>
+  
+  
+            <mat-form-field class="col-12">
+              <mat-label>Modelo</mat-label>
+              <input
+                matInput
+                type="text"
+                required
+                formControlName="modelo"
+              />
+            </mat-form-field>
+  
+            <mat-form-field class="col-12">
+              <mat-label>Peso</mat-label>
+              <input
+                matInput
+                type="text"
+                required
+                formControlName="peso"
+              />
+            </mat-form-field>
+  
+           
+  
+            
+            <mat-form-field class="col-12">
+              <mat-label>Alternative Image</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="alt_img"
+              />
+            </mat-form-field>
+  
+  
+          </form>
+  
+          <div class="flex justify-content-between">
+
+            <button
+            mat-flat-button
+            color="primary">
+            <mat-icon>save</mat-icon>
+            Guardar
+            </button>
+
+            <button
+            mat-flat-button
+            color="primary"
+            routerLink="repuestos/list"
+            >
+            
+
+            <mat-icon>after</mat-icon>
+              Atras
+            </button>
+            <!-- <span></span> -->
+  
+         
+          </div>
+  
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+    <div class="col-12 sm:col-6">
+  
+      <mat-card>
+        <!-- <img [src]="currentHero | heroImage" alt="imagen del héroe" mat-card-image> -->
+      </mat-card>
+  
+    </div>
+  </div>
+  
+  
+  

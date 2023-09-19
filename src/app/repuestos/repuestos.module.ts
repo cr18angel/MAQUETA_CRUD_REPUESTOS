@@ -11,6 +11,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
+import { RepuestoImagePipe } from './pipes/repuesto-image.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SharedModule } from '../shared/shared.module';
     RepuestoPageComponent,
     NewPageComponent,
     SearchPageComponent,
+    RepuestoImagePipe,
     
   ],
   imports: [

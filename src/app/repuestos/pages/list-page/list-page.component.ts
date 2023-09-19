@@ -4,6 +4,7 @@ import { RepuestosService } from '../../services/repuestos.service';
 
 
 
+
 @Component({
   selector: 'app-list-repuesto',
   templateUrl: './list-page.component.html',
@@ -19,10 +20,9 @@ export class ListPageComponent implements OnInit {
 
 
 // metodos
-// redirectToView() {
-  
-//   this.router.navegate(['/ruta-deseada']);
-// }
+
+
+
 
 
 

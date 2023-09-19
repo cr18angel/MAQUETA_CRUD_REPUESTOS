@@ -7,8 +7,11 @@
     </mat-card-header>
   
     <!-- TODO: imagen -->
-
-    <img mat-card-image  [src]="'assets/heroes/' + '216125' + '.JPG'"   style="max-height: 140px; display: flex; padding: 16px 16px 0;"   >
+   
+    <img mat-card-image [src]="repuesto | repuestoImage" 
+    (error)="setDefaultImage($event)" 
+    [alt]="repuesto.Imagen || 'Imagen no disponible'" 
+    style="max-height: 140px; display: flex; padding: 16px 16px 0;">
     <!-- <img mat-card-image [src]="'assets/heroes/' + repuesto.NroParte + '.JPG'"> -->
 
     
@@ -49,7 +52,8 @@
       <button mat-button
         mat-raised
         color="primary"
-        [routerLink]="['/heroes', repuesto.NroParte ]">
+
+        [routerLink]="['/repuestos/id']">
         <mat-icon>search</mat-icon>
       Ver
       </button>

@@ -1,1 +1,61 @@
-<p>repuesto-page works!</p>
+<!-- para ver la informacion de la maquina  -->
+
+
+<ng-template #divLoading>
+    <mat-grid-list cols="1">
+      <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </ng-template>
+  
+  <!-- 
+    incluir esto en el div al armar 
+    
+    *ngIf="maquina; else divLoading" -->
+  <div  class="grid p-2">
+  
+    <mat-card class="col-12 sm:col-6">
+  
+      <mat-card-header>
+        <mat-card-title>  Repuesto.Modelo</mat-card-title>
+        <mat-card-subtitle>Nombre.Repuesto</mat-card-subtitle>
+      </mat-card-header>
+  
+      
+      <!-- <img [src]="maquina | heroImage" [alt]="maquina.nombreMaquina" mat-card-image  /> -->
+  
+      <img mat-card-image  [src]="'assets/heroes/' + 'SinImagen' + '.JPG'" >
+    </mat-card>
+  
+    <mat-card class="col-12 sm:col-6">
+  
+      <mat-card-header>
+        <mat-card-title>Información</mat-card-title>
+        <mat-card-subtitle>nombre.repuesto</mat-card-subtitle>
+      </mat-card-header>
+  
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>peso.repuesto</mat-list-item>
+    
+          <mat-list-item> repuesto.caracteristica </mat-list-item>
+          <mat-list-item> respuesto. algo mas </mat-list-item>
+        </mat-list>
+  
+        <button
+          mat-button
+          color="warn"
+          routerLink="repuestos/"
+        >
+          Atras
+        </button>
+  
+      </mat-card-content>
+  
+  
+    </mat-card>
+  
+  
+  </div>
+  

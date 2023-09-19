@@ -14,7 +14,7 @@ export interface Repuesto {
       PrecioVentaIncluyeDescuento: string;
       Tramo: string;
       Crossover4500L: "SI" | "NO";  // Suponiendo que los valores solo pueden ser "SI" o "NO".
-      alt_img?:         string;
+      Imagen?:        string;
     }
     
   
