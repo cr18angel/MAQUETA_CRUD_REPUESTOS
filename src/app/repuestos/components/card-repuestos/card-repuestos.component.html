@@ -3,7 +3,7 @@
     <mat-card-header>
       <mat-card-title>{{ repuesto.Descripcion | slice:0:50 }}</mat-card-title>
 
-      <mat-card-subtitle>{{ repuesto.NroParte }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ repuesto.id }}</mat-card-subtitle>
     </mat-card-header>
   
     <!-- TODO: imagen -->
@@ -11,7 +11,7 @@
     <img mat-card-image [src]="repuesto | repuestoImage" 
     (error)="setDefaultImage($event)" 
     [alt]="repuesto.Imagen || 'Imagen no disponible'" 
-    style="max-height: 140px; display: flex; padding: 16px 16px 0;">
+    style="max-height: 140px;min-height: 140px; display: flex; padding: 16px 16px 0;">
     <!-- <img mat-card-image [src]="'assets/heroes/' + repuesto.NroParte + '.JPG'"> -->
 
     
@@ -42,7 +42,7 @@
       <button mat-button
         mat-raised
         color="primary"
-        [routerLink]="['/heroes/edit', repuesto.NroParte ]">
+        [routerLink]="['/repuestos/edit', repuesto.id ]">
         <mat-icon>edit</mat-icon>
         Editar
       </button>
@@ -52,10 +52,9 @@
       <button mat-button
         mat-raised
         color="primary"
-
-        [routerLink]="['/repuestos/id']">
+        [routerLink]="['/repuestos', repuesto.id]">
         <mat-icon>search</mat-icon>
-      Ver
+        Ver
       </button>
   
     </mat-card-actions>

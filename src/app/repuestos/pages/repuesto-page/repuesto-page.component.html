@@ -1,31 +1,39 @@
 <!-- para ver la informacion de la maquina  -->
 
-
+<div style="max-height: 20px;">
 <ng-template #divLoading>
-    <mat-grid-list cols="1">
+    <mat-grid-list cols="3"  >
+
+      <mat-grid-tile></mat-grid-tile>
+      
       <mat-grid-tile>
         <mat-spinner></mat-spinner>
       </mat-grid-tile>
+
+      <mat-grid-tile></mat-grid-tile>
+      
     </mat-grid-list>
   </ng-template>
-  
+</div>
   <!-- 
     incluir esto en el div al armar 
     
     *ngIf="maquina; else divLoading" -->
-  <div  class="grid p-2">
+    <div *ngIf="repuesto; else divLoading" class="grid p-2">
   
     <mat-card class="col-12 sm:col-6">
   
       <mat-card-header>
-        <mat-card-title>  Repuesto.Modelo</mat-card-title>
-        <mat-card-subtitle>Nombre.Repuesto</mat-card-subtitle>
+        <mat-card-title>  {{ repuesto.Descripcion }}</mat-card-title>
+        <mat-card-subtitle>{{ repuesto.LineaRepuestos}}</mat-card-subtitle>
       </mat-card-header>
   
-      
+      <img [src]="repuesto | repuestoImage"  mat-card-image/>
       <!-- <img [src]="maquina | heroImage" [alt]="maquina.nombreMaquina" mat-card-image  /> -->
-  
-      <img mat-card-image  [src]="'assets/heroes/' + 'SinImagen' + '.JPG'" >
+
+
+<!--   
+      <img mat-card-image  [src]="'assets/heroes/' + 'SinImagen' + '.JPG'" > -->
     </mat-card>
   
     <mat-card class="col-12 sm:col-6">

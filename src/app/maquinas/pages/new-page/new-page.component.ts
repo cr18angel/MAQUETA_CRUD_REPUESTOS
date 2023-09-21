@@ -47,6 +47,8 @@ export class NewPageComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // si ulr es distinto a include no retornes nada 
+
     if ( !this.router.url.includes('edit') ) return;
 
     this.activatedRoute.params

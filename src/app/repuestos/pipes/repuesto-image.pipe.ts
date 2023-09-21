@@ -4,27 +4,23 @@ import { Repuesto } from '../interfaces/repuesto.interfaces';
 
 
 @Pipe({
-  name: 'repuestoImage',
-  pure: false
+  name: 'repuestoImage'
 })
 
 
 
 export class RepuestoImagePipe implements PipeTransform {
 
-
-
-
   transform( repuesto: Repuesto ): string {
  
 
-      if ( !repuesto.NroParte && !repuesto.Imagen ) {
-        return 'assets/SinImagen.JPG';
+      if ( !repuesto.id && !repuesto.Imagen ) {
+        return 'assets/no-image.png';
       }
   
       if ( repuesto.Imagen ) return repuesto.Imagen; // https:///google.com/flash.png
   
-      return `assets/heroes/${ repuesto.NroParte }.JPG`;
+      return `assets/heroes/${ repuesto.id }.JPG`;
   
     }
   

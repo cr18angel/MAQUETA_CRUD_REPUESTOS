@@ -1,7 +1,7 @@
 
 export interface Repuesto {
 
-    NroParte: number | string;  // Puede ser un número o una cadena dependiendo del contexto.
+    id: string;  // Puede ser un número o una cadena dependiendo del contexto.
       Descripcion: string;
       GrupoArticulos: string;
       LineaRepuestos: string;
