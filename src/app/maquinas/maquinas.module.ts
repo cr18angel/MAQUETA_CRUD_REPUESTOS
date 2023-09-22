@@ -14,6 +14,7 @@ import { CardComponent } from './components/card/card.component';
 import { HeroImagePipe } from './pipes/hero-image.pipe';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { SharedModule } from '../shared/shared.module';
+import { RelacionesChipsComponent } from './components/relaciones/relaciones-chips/relaciones-chips.component';
 
 
 
@@ -32,6 +33,7 @@ import { SharedModule } from '../shared/shared.module';
     // Pipes
     HeroImagePipe,
      ConfirmDialogComponent,
+     RelacionesChipsComponent,
    
 
   ],

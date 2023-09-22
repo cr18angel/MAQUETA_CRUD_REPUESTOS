@@ -31,24 +31,32 @@
       <mat-card-subtitle>{{ maquina.nombreMaquina }}</mat-card-subtitle>
     </mat-card-header>
 
+
+<!-- hasta aca  -->
     <mat-card-content>
+<!-- 
       <mat-list>
         <mat-list-item>{{ maquina.peso }}</mat-list-item>
   
         <mat-list-item>{{ maquina.publisher }}</mat-list-item>
         <mat-list-item>{{ maquina.modelo }}</mat-list-item>
-      </mat-list>
+      </mat-list> -->
 
-      <button
-        mat-button
-        color="warn"
-        (click)="goBack()"
-      >
-        Atras
-      </button>
+
+      <app-relaciones-chips></app-relaciones-chips>
+
+
 
     </mat-card-content>
 
+
+    <button
+    mat-button
+    color="warn"
+    (click)="goBack()"
+  >
+    Atras
+  </button>
 
   </mat-card>
 

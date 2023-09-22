@@ -39,4 +39,10 @@ export class MaquinaPageComponent implements OnInit {
     this.router.navigateByUrl('heroes/list')
   }
 
-}
+
+
+
+
+
+  
+} // fin de clase 
