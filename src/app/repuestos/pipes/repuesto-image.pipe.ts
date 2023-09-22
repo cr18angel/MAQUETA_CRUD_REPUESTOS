@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Repuesto } from '../interfaces/repuesto.interfaces';
+import { Relaciones, Repuesto } from '../interfaces/repuesto.interfaces';
 
 
 
@@ -11,13 +11,18 @@ import { Repuesto } from '../interfaces/repuesto.interfaces';
 
 export class RepuestoImagePipe implements PipeTransform {
 
-  transform( repuesto: Repuesto ): string {
+  transform( value: Repuesto | Relaciones ): string {
  
+    let  repuesto: Repuesto | undefined;
 
-      if ( !repuesto.id && !repuesto.Imagen ) {
-        return 'assets/no-image.png';
-      }
-  
+    if ('repuestos' in value) {
+      // Aquí, value es de tipo Relaciones
+      repuesto = value.repuestos;
+    } else {
+      // Aquí, value es de tipo Repuesto
+      repuesto = value;
+    }
+    
       if ( repuesto.Imagen ) return repuesto.Imagen; // https:///google.com/flash.png
   
       return `assets/heroes/${ repuesto.id }.JPG`;

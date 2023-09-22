@@ -21,6 +21,9 @@ const routes: Routes = [
       { path: 'new-repuesto', component: NewPageComponent },
       { path: 'search', component: SearchPageComponent },
       { path: 'edit/:id', component: NewPageComponent },
+
+      {path: 'byMaquina/:id', component: ListPageComponent},
+
       { path: 'list', component: ListPageComponent },
       { path: ':id', component: RepuestoPageComponent },
    

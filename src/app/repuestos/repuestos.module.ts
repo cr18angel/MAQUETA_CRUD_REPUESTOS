@@ -12,6 +12,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { RepuestoImagePipe } from './pipes/repuesto-image.pipe';
+import { CardByIdComponent } from './components/card-by-id/card-by-id.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { RepuestoImagePipe } from './pipes/repuesto-image.pipe';
     NewPageComponent,
     SearchPageComponent,
     RepuestoImagePipe,
+    CardByIdComponent,
+    
     
   ],
   imports: [
@@ -30,6 +35,7 @@ import { RepuestoImagePipe } from './pipes/repuesto-image.pipe';
     ReactiveFormsModule,
     MaterialModule,
     SharedModule,
+    MatDialogModule
     // importar los modulos 
 
 

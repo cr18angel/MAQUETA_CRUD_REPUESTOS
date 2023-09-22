@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, of } from 'rxjs';
 import { environments } from 'src/environments/environments';
-import { Repuesto } from '../interfaces/repuesto.interfaces';
+import { Relaciones, Repuesto } from '../interfaces/repuesto.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,15 @@ export class RepuestosService {
         catchError( error => of(undefined))
       );
   }
+
+  // metodo para traer repuesto por maquina }
+
+getRepuestoByMaquinaId(id: string): Observable<Relaciones[]|undefined>{
+  return this.http.get<Relaciones[]>(`${this.baseUrl}/maquina_repuesto?heroesId=${id}&_expand=repuestos`)
+  .pipe(
+    catchError( error => of(undefined))
+  );
+}
 
 
   addRespuesto( repuesto: Repuesto): Observable<Repuesto> {

@@ -27,10 +27,6 @@ export class CardComponent implements OnInit {
 
 
 
-// funciones 
-goToRepuestos() {
-  this.router.navigate(['/repuestos']);
-}
 
 
 }

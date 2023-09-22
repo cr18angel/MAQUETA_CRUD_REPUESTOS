@@ -1,0 +1,66 @@
+<mat-card style="max-width: 18rem;">
+    <mat-card-header>
+      <mat-card-title>{{ repuesto.repuestos.Descripcion | slice:0:50 }}</mat-card-title> 
+        <mat-card-subtitle>{{ repuesto.repuestos.id }}</mat-card-subtitle>
+    </mat-card-header>
+  
+    <!-- TODO: imagen -->
+   
+    <img mat-card-image [src]="repuesto | repuestoImage" 
+    (error)="setDefaultImage($event)" 
+    [alt]="repuesto.repuestos.Imagen || 'Imagen no disponible'" 
+    style="max-height: 140px;min-height: 140px; display: flex; padding: 16px 16px 0;">
+
+
+    <!-- <img mat-card-image [src]="'assets/heroes/' + repuesto.NroParte + '.JPG'"> -->
+
+    
+  
+    <mat-card-content class="mt-2">
+      <h3>{{ repuesto.repuestos.StockTotal}}</h3>
+      <!-- <h3>{{ repuesto.StockTotal}}</h3> -->
+
+
+      <p>
+        <strong>Caracteristicas</strong> 
+        <br>
+        peso
+        <br>
+        tamaño
+        <br>
+        Origen
+  
+        <!-- <mat-chip-listbox>
+          <mat-chip *ngFor="let name of hero.characters.split(',') | slice:0:3">
+            {{ name }}
+          </mat-chip>
+        </mat-chip-listbox> -->
+      </p>
+    </mat-card-content>
+  
+    <mat-divider></mat-divider>
+  
+    <mat-card-actions>
+  
+      <button mat-button
+        mat-raised
+        color="primary"
+        [routerLink]="['/repuestos/edit', repuesto.id ]">
+        <mat-icon>edit</mat-icon>
+        Editar
+      </button>
+  
+      <span class="spacer"></span>
+  
+      <button mat-button
+        mat-raised
+        color="primary"
+        [routerLink]="['/repuestos', repuesto.id]">
+        <mat-icon>search</mat-icon>
+        Ver
+      </button>
+  
+    </mat-card-actions>
+  
+  </mat-card>
+  

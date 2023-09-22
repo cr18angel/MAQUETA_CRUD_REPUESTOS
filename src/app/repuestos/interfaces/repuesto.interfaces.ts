@@ -1,3 +1,4 @@
+import { Maquina } from "src/app/maquinas/interfaces/maquina.interface";
 
 export interface Repuesto {
 
@@ -17,5 +18,15 @@ export interface Repuesto {
       Imagen?:        string;
     }
     
+
+
+
+
   
-    
+    export interface Relaciones {
+      id: string;
+      heroesId: number;
+      repuestosId: number;
+      heroes: Maquina;
+      repuestos: Repuesto;
+    }

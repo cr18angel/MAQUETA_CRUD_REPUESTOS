@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 
@@ -23,6 +24,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 
     AppRoutingModule,
     SharedModule,
+
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

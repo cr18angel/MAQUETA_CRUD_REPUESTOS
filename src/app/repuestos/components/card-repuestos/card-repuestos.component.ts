@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Repuesto } from '../../interfaces/repuesto.interfaces';
+import { Relaciones, Repuesto } from '../../interfaces/repuesto.interfaces';
 
 @Component({
   selector: 'repuestos-repuesto-card',

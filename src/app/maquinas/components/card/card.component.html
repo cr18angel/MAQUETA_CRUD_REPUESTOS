@@ -7,7 +7,12 @@
 
   <!-- TODO: imagen -->
 
-  <img   mat-card-image [src]="maquina | heroImage" [alt]="maquina.nombreMaquina"   (click)="goToRepuestos()" style="max-height: 120px; display: flex; cursor: pointer; padding: 16px 16px 0;">
+  <img   
+  mat-card-image [src]="maquina | heroImage" 
+  [alt]="maquina.nombreMaquina" 
+  style="max-height: 120px; display: flex; cursor: pointer; padding: 16px 16px 0;"
+  [routerLink]="['/repuestos/byMaquina', maquina.id ]"
+  >
 
   <mat-card-content class="mt-2">
     <h4>{{ maquina.publisher }}</h4>

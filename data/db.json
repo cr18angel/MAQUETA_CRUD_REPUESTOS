@@ -462,6 +462,13 @@
       "id": 2,
       "heroesId": 66,
       "repuestosId": 220606 
+    },
+
+    {
+      "id": 3,
+      "heroesId": 66,
+      "repuestosId": "1223-1002"
+ 
     }
 
 

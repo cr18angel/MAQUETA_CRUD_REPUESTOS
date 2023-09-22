@@ -8,3 +8,12 @@
 4. Ejecutar la app ```npm start``` o bien ```ng serve -o```
 
 
+con esto manejo la relacion n a n 
+
+5. http://localhost:3000/maquina_repuesto?_expand=heroes&_expand=repuestos
+
+
+con esto manejo la relacion 1 a n 
+
+
+6.http://localhost:3000/maquina_repuesto

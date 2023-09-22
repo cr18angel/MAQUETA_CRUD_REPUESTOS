@@ -45,7 +45,7 @@ editar: boolean = false;
 
   ngOnInit(): void {
     if (!this.router.url.includes('edit')) return;
-    // esta variable me ayuda a bloquear inputs
+    // esta variable me ayuda a bloquear inputs si estoy editando en vez de creando 
     this.editar= true;
     this.activatedRoute.params
     .pipe(
