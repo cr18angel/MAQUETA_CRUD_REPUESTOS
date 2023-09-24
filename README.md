@@ -17,3 +17,9 @@ con esto manejo la relacion 1 a n
 
 
 6.http://localhost:3000/maquina_repuesto
+
+
+
+-----------------------relacion de maquinas repuestos---------------------------------------------
+
+se debe crear primero el objeto y llevarlo a la opcion de relacionarlo    =>  tomando ese ID recien creado 

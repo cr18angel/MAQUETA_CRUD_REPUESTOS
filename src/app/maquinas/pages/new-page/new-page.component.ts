@@ -10,6 +10,8 @@ import { Publisher, Maquina } from '../../interfaces/maquina.interface';
 import { MaquinasService } from '../../services/maquinas.service';
 
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
+import { RelationDialogComponent } from 'src/app/relaciones/components/relation-dialog/relation-dialog.component';
+
 
 @Component({
   selector: 'app-new-page',
@@ -17,8 +19,6 @@ import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-
   styles: [
   ]
 })
-
-
 
 export class NewPageComponent implements OnInit {
 
@@ -51,6 +51,11 @@ export class NewPageComponent implements OnInit {
 
     if ( !this.router.url.includes('edit') ) return;
 
+
+
+    // aca el metodo que me caputura el id 
+  
+    
     this.activatedRoute.params
       .pipe(
         switchMap( ({ id }) => this.maquinaService.getMaquinaById( id ) ),
@@ -81,13 +86,47 @@ export class NewPageComponent implements OnInit {
       return;
     }
 
+
+    // esta sera la logica, crea el repuesto y lo lleva a la pagina de su edicion, con un alert de si quieres hacer de una vez su realcion 
+
     this.maquinaService.addHero( this.currentHero )
       .subscribe( hero => {
         // TODO: mostrar snackbar, y navegar a /heroes/edit/ hero.id
-        this.router.navigate(['/heroes/edit', hero.id ]);
+
+        //antigua. 
+             //this.router.navigate(['/heroes/edit', hero.id ]);
+
+        // nueva ruta para asigaar las realaciones 
+
+        this.router.navigate(['/relaciones/list/', hero.id]);
+
+    
         this.showSnackbar(`${ hero.nombreMaquina } created!`);
+
+         this.openDialog()
       });
   }
+
+
+onRelaciones(){
+  if ( this.currentHero.id ) {
+  
+
+    this.router.navigate(['/relaciones/list', this.currentHero.id]);
+
+
+
+}
+
+}
+
+
+
+
+
+
+
+
 
   onDeleteHero() {
     if ( !this.currentHero.id ) throw Error('Hero id is required');
@@ -108,13 +147,33 @@ export class NewPageComponent implements OnInit {
 
 
 
-  }
 
+    
+
+
+  }
 
   showSnackbar( message: string ):void {
     this.snackbar.open( message, 'done', {
       duration: 2500,
     })
   }
+
+
+
+// funcion que abre el dialogo en el componente principal 
+
+
+  openDialog(): void{
+    this.dialog.open(RelationDialogComponent,
+       {
+      width: '500px',
+  
+    });
+  }
+
+
+
+  
 
 }

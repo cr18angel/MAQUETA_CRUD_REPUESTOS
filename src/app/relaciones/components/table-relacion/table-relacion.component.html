@@ -1,0 +1,26 @@
+
+
+    <mat-selection-list #fatherList>
+
+      <!-- importente el value repuesto -->
+        <mat-list-option *ngFor="let repuesto of allRepuestos"   [value]="repuesto.id">
+          {{repuesto.Descripcion}} {{repuesto.id}}
+        </mat-list-option>
+      </mat-selection-list>
+    
+      <p>
+        Options selected: {{fatherList.selectedOptions.selected.length}}
+      </p>
+
+
+      
+
+
+      <button mat-raised-button (click)="getSelectedItems()">Obtener elementos seleccionados</button>
+
+      <button mat-stroked-button color="primary" routerLink="/heroes/list">Cancelar</button>
+      <button mat-stroked-button color="primary">Cargar Repuestos</button>
+
+
+
+

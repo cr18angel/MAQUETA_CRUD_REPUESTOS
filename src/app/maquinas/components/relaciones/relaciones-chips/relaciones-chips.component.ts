@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, Inject } from '@angular/core';
+import { Component, ElementRef, ViewChild, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
@@ -6,29 +6,51 @@ import { Observable, combineLatest } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { RepuestosService } from 'src/app/repuestos/services/repuestos.service';
+import { Repuesto } from 'src/app/repuestos/interfaces/repuesto.interfaces';
+import { MaquinasService } from 'src/app/maquinas/services/maquinas.service';
+import { Maquina } from 'src/app/maquinas/interfaces/maquina.interface';
 
 @Component({
   selector: 'app-relaciones-chips',
   templateUrl: './relaciones-chips.component.html',
   styleUrls: ['./relaciones-chips.component.css']
 })
-export class RelacionesChipsComponent {
+export class RelacionesChipsComponent implements OnInit {
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  fruitCtrl = new FormControl('');
-  filteredFruits: Observable<string[]>;
+  fruitCtrl = new FormControl('');  
+  filteredFruits: Observable<Repuesto[]>;
 
   searchCtrl = new FormControl('');
   filteredSearch: Observable<string[]>;
 
+
+
+ // aqui estan todos los repuestos 
+//  allFruits: string[] = [];
+public repuestos: Repuesto[] = [];
+
+
+
+
   fruits: string[] = ['Parte de repuesto', '220606'];
   displayedFruits: string[] = [...this.fruits]; // Lista de frutas a mostrar
-  allFruits: string[] = ['216125', '220606', '1223-1002', 'otro', 'otros'];
+
+
+
+ 
 
   @ViewChild('fruitInput')
   fruitInput!: ElementRef<HTMLInputElement>;
 
-  constructor(@Inject(LiveAnnouncer) private announcer: LiveAnnouncer) {
+  constructor(
+    @Inject(LiveAnnouncer) private announcer: LiveAnnouncer,
+    private _repuestoService: RepuestosService
+  
+
+  ) 
+  {
     this.filteredSearch = this.searchCtrl.valueChanges.pipe(
       startWith(''),
       map(value => this._searchFilter(value ?? ''))
@@ -45,7 +67,17 @@ export class RelacionesChipsComponent {
     ).subscribe(value => {
       this.displayedFruits = this._searchFilter(value ?? '');
     });
-  }
+  } // fin ctor 
+
+
+
+ngOnInit(): void {
+this.getRepuestos();
+}
+
+
+
+
 
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
@@ -72,14 +104,36 @@ export class RelacionesChipsComponent {
     this.fruitInput.nativeElement.value = '';
     this.fruitCtrl.setValue(null);
   }
-
-  private _filter(value: string): string[] {
+  private _filter(value: string): Repuesto[] {
     const filterValue = value.toLowerCase();
-    return this.allFruits.filter(fruit => fruit.toLowerCase().includes(filterValue));
+    
+  if (!filterValue) {
+    return this.repuestos; // Retorna todos los repuestos si el valor de entrada está vacío.
   }
-
+    return this.repuestos.filter(fruit => fruit.Descripcion.toLocaleLowerCase().includes(filterValue));
+  }
   private _searchFilter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.fruits.filter(fruit => fruit.toLowerCase().includes(filterValue));
   }
+
+
+
+
+// funciones 
+getRepuestos(){
+  this._repuestoService.getRepuesto()
+  .subscribe( repuesto => { this.repuestos   = repuesto
+  
+    console.log(this.repuestos); // Mover el log aquí
+  },     error => {
+    console.error('Error en el componente', error) } );
+
+
+
+ 
+}
+
+
+
 }

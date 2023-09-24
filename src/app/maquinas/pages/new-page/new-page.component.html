@@ -71,16 +71,29 @@
         </form>
 
         <div class="flex justify-content-between">
+
+
+          <button
+          *ngIf="currentHero"
+          mat-flat-button
+          color="primary"
+         routerLink="/heroes/"
+          >
+          <mat-icon>keyboard_backspace</mat-icon>
+          Atras
+        </button>
           <button
             *ngIf="currentHero.id"
-            (click)="onDeleteHero()"
+            (click)="onRelaciones()"
             mat-flat-button
             color="primary"
           >
-            Borrar
+            Relaciones
           </button>
-          <span></span>
+         
 
+
+        
           <button
             mat-flat-button
             color="primary"

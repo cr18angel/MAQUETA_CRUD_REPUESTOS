@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, map, Observable, of } from 'rxjs';
+import { catchError, map, Observable, of, throwError } from 'rxjs';
 
 import { Maquina } from '../interfaces/maquina.interface';
 import { environments } from '../../../environments/environments';
+import { Repuesto } from 'src/app/repuestos/interfaces/repuesto.interfaces';
 
 
 @Injectable({ providedIn: 'root' })
@@ -22,7 +23,14 @@ export class MaquinasService {
   }
 
  
-
+  getRepuesto(): Observable<Maquina[]> {
+    return this.http.get<Maquina[]>(`${ this.baseUrl }/heroes`).pipe(
+      catchError(err => {
+        console.error('Error al obtener repuestos', err);
+        return throwError(err); // re-lanza el error después de loguearlo
+      })
+    );
+  }
 
 
   getMaquinaById( id: string ): Observable<Maquina|undefined> {

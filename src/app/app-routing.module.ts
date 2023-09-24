@@ -20,13 +20,17 @@ const routes: Routes = [
   },
 
 
+  {
+    path: 'relaciones',
+    loadChildren: () => import('./relaciones/relaciones.module').then(m => m.RelacionesModule),
+  },
 
 
 
 
   {
     path: '404',
-    component: Error404PageComponent,
+    component: Error404PageComponent, 
   },
 
   {
