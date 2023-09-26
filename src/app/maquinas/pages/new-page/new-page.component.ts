@@ -22,6 +22,10 @@ import { RelationDialogComponent } from 'src/app/relaciones/components/relation-
 
 export class NewPageComponent implements OnInit {
 
+  public idPasoComponente?: string;
+
+
+
   public heroForm = new FormGroup({
     id:        new FormControl<string>(''),
     nombreMaquina: new FormControl<string>('', { nonNullable: true }),
@@ -94,28 +98,26 @@ export class NewPageComponent implements OnInit {
         // TODO: mostrar snackbar, y navegar a /heroes/edit/ hero.id
 
         //antigua. 
-             //this.router.navigate(['/heroes/edit', hero.id ]);
+             this.router.navigate(['/heroes/edit', hero.id ]);
 
         // nueva ruta para asigaar las realaciones 
 
-        this.router.navigate(['/relaciones/list/', hero.id]);
-
-    
+        // this.router.navigate(['/relaciones/list/', hero.id]);
         this.showSnackbar(`${ hero.nombreMaquina } created!`);
 
+        // para pasar al otro coponente 
+        this.idPasoComponente = hero.id;
+      
          this.openDialog()
       });
   }
 
 
+
+// funcion para abrir relaciones desde editar 
 onRelaciones(){
   if ( this.currentHero.id ) {
-  
-
-    this.router.navigate(['/relaciones/list', this.currentHero.id]);
-
-
-
+   this.router.navigate(['/relaciones/list', this.currentHero.id]);
 }
 
 }
@@ -163,15 +165,15 @@ onRelaciones(){
 
 // funcion que abre el dialogo en el componente principal 
 
-
   openDialog(): void{
-    this.dialog.open(RelationDialogComponent,
-       {
-      width: '500px',
-  
-    });
-  }
+    this.dialog.open(RelationDialogComponent,{
 
+      data: {
+        idPasoComponente: this.idPasoComponente
+  
+    }});
+  
+  }
 
 
   
